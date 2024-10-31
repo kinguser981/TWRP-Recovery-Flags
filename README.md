@@ -10,6 +10,93 @@ TWRP Recovery Flags By Samuel Kendall
 
 ```
 
+
+
+#
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab
+
+#
+BOARD_SYSTEMIMAGE_PARTITION_TYPE := ext4
+
+#
+BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := f2fs
+
+#
+BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
+
+#
+BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE
+
+# Properties
+TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
+
+# Platform
+TARGET_BOARD_PLATFORM := 
+TARGET_BOOTLOADER_BOARD_NAME := 
+QCOM_BOARD_PLATFORMS += 
+
+#
+BOARD_USES_FULL_RECOVERY_IMAGE
+
+# Verified Boot
+BOARD_AVB_ENABLE := true
+
+#
+TW_USE_FSCRYPT_POLICY
+
+# Crypto
+TW_INCLUDE_FBE_METADATA_DECRYPT := true
+
+#
+BOARD_USES_QCOM_FBE_DECRYPTION := true
+
+#
+TW_SUPPORT_INPUT_AIDL_HAPTICS := true
+
+#
+TW_SUPPORT_INPUT_AIDL_HAPTICS_FIX_OFF := true
+
+# To load vendor dlkm modules 
+TW_LOAD_VENDOR_DLKM_MODULES := "qpnp_adaptive_charge.ko stmicro_mmi.ko goodix_brl_mmi.ko qpnp-pbs.ko qcom-hv-haptics.ko utags.ko"
+
+# Copy DTB
+PRODUCT_COPY_FILES += \
+        $(TARGET_PREBUILT_DTB):dtb.img
+
+# Init
+TARGET_INIT_VENDOR_LIB
+
+# Display
+TARGET_SCREEN_DENSITY := 450
+
+# Bootloader
+TARGET_NO_BOOTLOADER := false
+
+#
+TARGET_USES_UEFI := true
+
+#
+TARGET_USES_REMOTEPROC := true
+
+#
+AB_OTA_PARTITIONS += \
+    boot \
+    dtbo \
+    product \
+    system 
+
+#
+DEVICE_PREBUILT_PATH := device/motorola/eqe/prebuilt
+
+# A/B
+AB_OTA_UPDATER := true
+
+#
+BOARD_BUILD_SYSTEM_ROOT_IMAGE := false
+
+# For building with minimal manifest
+ALLOW_MISSING_DEPENDENCIES := true
+
 # Specifies additional kernel command-line parameters.
 BOARD_KERNEL_CMDLINE
 
@@ -70,9 +157,6 @@ TW_HAS_EDL_MODE
 # To enable decryption.
 TW_INCLUDE_CRYPTO_FBE
 
-# 
-TW_INCLUDE_FBE_METADATA_DECRYPT
-
 # Enable various features and tools in TWRP.
 TW_INCLUDE_LIBRESETPROP
 
@@ -120,12 +204,16 @@ RECOVERY_SDCARD_ON_DATA := true
 # HTC Dumlock for those devices which need it
 TW_INCLUDE_DUMLOCK := true
 
+#
 TW_INTERNAL_STORAGE_PATH
 
+#
 TW_INTERNAL_STORAGE_MOUNT_POINT
 
+#
 TW_EXTERNAL_STORAGE_PATH
 
+#
 TW_EXTERNAL_STORAGE_MOUNT_POINT
 
 # If your device has recovery as a second ramdisk of boot.img
