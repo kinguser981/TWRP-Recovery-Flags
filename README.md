@@ -36,9 +36,6 @@ TARGET_RECOVERY_DEVICE_MODULES
 TARGET_USE_CUSTOM_LUN_FILE_PATH
 
 # Determine the file systems used for userdata, system, and other partitions.
-TARGET_USERIMAGES_USE_EXT4
-
-# Determine the file systems used for userdata, system, and other partitions.
 TARGET_USERIMAGES_USE_F2FS
 
 # Determine the file systems used for userdata, system, and other partitions.
@@ -161,8 +158,6 @@ TW_NO_REBOOT_BOOTLOADER
 # 
 TW_NO_REBOOT_RECOVERY
 
-# 
-TW_NO_SCREEN_BLANK
 
 # 
 TW_NO_SCREEN_TIMEOUT
@@ -265,7 +260,8 @@ TW_NO_USB_STORAGE := true
 # Inject TWRP as a second ramdisk for Samsung devices, which keep recoveries that way.
 TW_INCLUDE_INJECTTWRP := true
 
-TW_INCLUDE_BLOBPACK -- NEED HELP
+#
+TW_INCLUDE_BLOBPACK
 
 # Specify a path to the lun file on device
 TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/class/android_usb/android0/f_mass_storage/lun0/file"
@@ -274,8 +270,6 @@ TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/class/android_usb/android0/f_mass_stora
 BOARD_UMS_LUNFILE :=
 
 TW_HAS_DOWNLOAD_MODE -- For Samsung devices
-
-TW_NO_SCREEN_BLANK -- NEED HELP
 
 TW_SDEXT_NO_EXT4 -- Blocks EXT4 FS for SD-EXT partitions
 
@@ -315,8 +309,6 @@ TW_EXCLUDE_ENCRYPTED_BACKUPS := true
 # Timezone fixes for some Qcom devices.
 TARGET_RECOVERY_QCOM_RTC_FIX
 
-TW_NO_LEGACY_PROPS -- NEED HELP
-
 # Supply a custom init.rc for the recovery
 TARGET_RECOVERY_INITRC := device/htc/pico/ramdisk/recovery/init.recovery.rc
 
@@ -329,7 +321,8 @@ TW_NO_EXFAT := true
 # An awesome way to take screenshots. Back-end improvement, no noticeable user side changes. Screenshots work without it too
 TW_INCLUDE_FB2PNG := true
 
-BOARD_USES_BML_OVER_MTD -- NEED HELP
+#
+BOARD_USES_BML_OVER_MTD
 
 # include Logcat daemon for help in debugging
 TWRP_INCLUDE_LOGCAT := true
@@ -374,46 +367,48 @@ BOARD_USE_CUSTOM_RECOVERY_FONT -- Specify a .ttf file to use as default font
 
 BOARD_CUSTOM_GRAPHICS -- include customised graphics backends if 3.0.0-0 broke stuff for you
 
-TARGET_CUSTOM_KERNEL_HEADERS -- NEED HELP
+#
+TARGET_CUSTOM_KERNEL_HEADERS
 
-TW_NEW_ION_HEAP -- NEED HELP
-
+#
 RECOVERY_TOUCHSCREEN_SWAP_XY 
 RECOVERY_TOUCHSCREEN_FLIP_X
 RECOVERY_TOUCHSCREEN_FLIP_Y
 
 RECOVERY_GRAPHICS_FORCE_USE_LINELENGTH -- Fixes slanty graphics
 
-TW_DISABLE_DOUBLE_BUFFERING -- NEED HELP
+#
+TW_DISABLE_DOUBLE_BUFFERING
 
-TARGET_RECOVERY_FORCE_PIXEL_FORMAT -- NEED HELP FOR POSSIBLE INPUTS
+# For people whose screens were mounted the wrong side across
+BOARD_HAS_FLIPPED_SCREEN
 
-BOARD_HAS_FLIPPED_SCREEN -- For people whose screens were mounted the wrong side across
+#
+TW_IGNORE_MAJOR_AXIS_0
 
-TW_IGNORE_MAJOR_AXIS_0 -- NEED HELP
+#
+TW_IGNORE_MT_POSITION_0
 
-TW_IGNORE_MT_POSITION_0 -- NEED HELP
+#
+TW_IGNORE_ABS_MT_TRACKING_ID
 
-TW_IGNORE_ABS_MT_TRACKING_ID -- NEED HELP
+#
+TW_WHITELIST_INPUT
 
-TW_INPUT_BLACKLIST -- NEED HELP
+#
+TARGET_HW_DISK_ENCRYPTION
 
-TW_WHITELIST_INPUT -- NEED HELP
+# Improvements for x86 based devices
+TW_HAVE_X86_ACCELERATED_PIXELFLINGER
 
-TARGET_HW_DISK_ENCRYPTION -- NEED HELP
-
-TW_HAVE_X86_ACCELERATED_PIXELFLINGER -- Improvements for x86 based devices
-
-ARCH_ARM_HAVE_NEON -- Take advantage of ARM-NEON optimisations
+# Take advantage of ARM-NEON optimisations
+ARCH_ARM_HAVE_NEON
 
 # remove TrueType fonts
 TW_DISABLE_TTF:= true
 
 # building of an OEM friendly TWRP. excludes SuperSu, uses Toolbox instead busybox, disables themeing. MORE INFOS TO BE ADDED
 TW_OEM_BUILD := true
-
-# Adds EXT4 formatting binaries
-TARGET_USERIMAGES_USE_EXT4 := true
 
 # screen will stay awake
 TW_NO_SCREEN_TIMEOUT := true
@@ -514,9 +509,6 @@ TWRP_EVENT_LOGGING := true
 # TW_INPUT_BLACKLIST Usage:
 TW_INPUT_BLACKLIST := accelerometer
 TW_INPUT_BLACKLIST := "accelerometer\x0agyroscope"
-
-# Add EXT4 support
-TARGET_USERIMAGES_USE_EXT4 := true
 
 # Disable/enable SELinux. Only suggested when you want to enable SELinux support
 TWHAVE_SELINUX := true
@@ -673,9 +665,6 @@ TW_ALWAYS_RMRF := true
 
 # system won't be unmounted,
 TW_NEVER_UNMOUNT_SYSTEM := true
-
-# don't blank screen (available optional inside recovery settings too)
-TW_NO_SCREEN_BLANK := true
 
 # deprecated, use TW_INCLUDE_CRYPTO instead
 TW_INCLUDE_JB_CRYPTO := true
