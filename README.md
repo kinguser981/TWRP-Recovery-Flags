@@ -90,12 +90,6 @@ TW_HAS_NO_BOOT_PARTITION
 # To enable decryption.
 TW_INCLUDE_CRYPTO_FBE
 
-# Enable various features and tools in TWRP.
-TW_INCLUDE_DUMLOCK
-
-# 
-TW_INCLUDE_FB2PNG
-
 # 
 TW_INCLUDE_FBE_METADATA_DECRYPT
 
@@ -135,12 +129,6 @@ TW_NO_EXFAT_FUSE
 # 
 TW_NO_LEGACY_PROPS
 
-# 
-TW_NO_REBOOT_RECOVERY
-
-# 
-TW_NO_USB_STORAGE
-
 # Enables support for round screens.
 TW_ROUND_SCREEN
 
@@ -149,9 +137,6 @@ TW_SECONDARY_BRIGHTNESS_PATH
 
 # Specifies the theme to use.
 TW_THEME
-
-# 
-TW_USE_MODEL_HARDWARE_ID_FOR_DEVICE_ID
 
 # Enables the use of the new minadbd.
 TW_USE_NEW_MINADBD
@@ -164,15 +149,8 @@ TW_HAVE_SELINUX
 
 # Configure logg options.
 
-
-# Enables the Logcat
-TWRP_INCLUDE_LOGCAT
-
 # Add EXT4 support
 TARGET_USERIMAGES_USE_EXT4 := true
-
-# Disable/enable SELinux. Only suggested when you want to enable SELinux support
-TWHAVE_SELINUX := true
 
 # disables things like sdcard partitioning and may save you some space if TWRP isn't fitting in your recovery patition
 BOARD_HAS_NO_REAL_SDCARD := true
@@ -209,9 +187,6 @@ TW_CUSTOM_POWER_BUTTON := 107
 # Prevent TWRP from unmounting /system
 TW_NEVER_UNMOUNT_SYSTEM := true
 
-# Removes USB Storage capability
-TW_NO_USB_STORAGE := true
-
 #
 TW_INCLUDE_BLOBPACK
 
@@ -220,8 +195,6 @@ TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/class/android_usb/android0/f_mass_stora
 
 # Not very sure, I guess it allows you to simply pop in the lunfile itself
 BOARD_UMS_LUNFILE :=
-
-TW_HAS_DOWNLOAD_MODE -- For Samsung devices
 
 TW_SDEXT_NO_EXT4 -- Blocks EXT4 FS for SD-EXT partitions
 
@@ -270,22 +243,16 @@ TW_DEFAULT_LANGUAGE := en-US
 # Remove exFAT formatting binaries
 TW_NO_EXFAT := true
 
-# An awesome way to take screenshots. Back-end improvement, no noticeable user side changes. Screenshots work without it too
-TW_INCLUDE_FB2PNG := true
-
 #
 BOARD_USES_BML_OVER_MTD
 
-# include Logcat daemon for help in debugging
+# include Logcat for help in debugging
 TWRP_INCLUDE_LOGCAT := true
 
 # See here : https://github.com/omnirom/android_bootable_recovery/blob/android-6.0/Android.mk#L435
 TARGET_RECOVERY_DEVICE_MODULES := true
 
 TARGET_USERIMAGES_USE_F2FS -- Include mkfs.f2fs for formatting partitions as F2FS
-
-# Include a custom hardwarekeyboard.cpp . Can't see the point though.
-TWRP_CUSTOM_KEYBOARD := device/lge/hammerhead/recovery/hardwarekeyboard.cpp
 
 # @yuwneg :My experience on MTK tablet, typical is RECOVERY_TOUCHSCREEN_SWAP_XY & RECOVERY_TOUCHSCREEN_FLIP_Y is use is pair as MTK vendor tend to use landscape LCD but a normal portrait Touch Screen !
 TW_X_OFFSET -- X-Axis offset for borked displays
@@ -362,7 +329,7 @@ TW_OEM_BUILD := true
 # screen will stay awake
 TW_NO_SCREEN_TIMEOUT := true
 
-# add an option in reboot menu to reboot into Download Mode
+# add an option in reboot menu to reboot into Download Mode For Samsung devices
 TW_HAS_DOWNLOAD_MODE := true
 
 # don't blank screen (available optional inside recovery settings too)
@@ -454,9 +421,6 @@ TWHAVE_SELINUX := true
 # this enables proper handling of /data/media on devices that have this folder for storage (most Honeycomb and devices that originally shipped with ICS like Galaxy Nexus
 RECOVERY_SDCARD_ON_DATA := true
 
-# HTC Dumlock for those devices which need it
-TW_INCLUDE_DUMLOCK := true
-
 # To prevent /boot partition not found error
 TW_HAS_NO_BOOT_PARTITION := true
 
@@ -530,17 +494,11 @@ TW_NO_EXFAT := true
 # An awesome way to take screenshots. Back-end improvement, no noticeable user side changes. Screenshots work without it too
 TW_INCLUDE_FB2PNG := true
 
-# include Logcat daemon for help in debugging
-TWRP_INCLUDE_LOGCAT := true
-
 # See here : https://github.com/omnirom/android_b...ndroid.mk#L435
 TARGET_RECOVERY_DEVICE_MODULES := true
 
 # Include a custom hardwarekeyboard.cpp . Can't see the point though.
 TWRP_CUSTOM_KEYBOARD := device/lge/hammerhead/recovery/hardwarekeyboard.cpp
-
-# Smartwatch optimisation
-TW_ROUND_SCREEN := true
 
 # Remove TrueType fonts
 TW_DISABLE_TTF:= true
@@ -551,9 +509,6 @@ TW_EXCLUDE_MTP := true
 # removes the reboot option to boot into boooader, needed e.g. on samsung devices which use Download mode instead
 # Removes the 'Reboot bootloader' button
 TW_NO_REBOOT_BOOTLOADER := true
-
-# add an option in reboot menu to reboot into Download Mode
-TW_HAS_DOWNLOAD_MODE := true
 
 # some devices don't have a temp sensor, disable in such case to stop spamming recovery.log
 TW_NO_CPU_TEMP := true
