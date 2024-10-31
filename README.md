@@ -2,153 +2,226 @@
 TWRP-Recovery-Flags
 
 ```
+# Indicates that the device doesn't have a physical SD card.
 BOARD_HAS_NO_REAL_SDCARD
-                            
+
+# Specifies additional kernel command-line parameters.
 BOARD_KERNEL_CMDLINE
-                                    
+
+# Determines whether the device uses a metadata partition.
 BOARD_USES_METADATA_PARTITION
-                                     
+
+# Sets the device's screen resolution.
 DEVICE_RESOLUTION
-                                       
+
+# Specifies whether the recovery partition is located on the data partition.
 RECOVERY_SDCARD_ON_DATA
-                                     
+
+# Configure touchscreen rotation and mirroring.
 RECOVERY_TOUCHSCREEN_FLIP_X
-                                
+
+# Configure touchscreen rotation and mirroring.
 RECOVERY_TOUCHSCREEN_FLIP_Y
-                                       
+
+# Configure touchscreen rotation and mirroring.
 RECOVERY_TOUCHSCREEN_SWAP_XY
-                                     
+
+# Defines the device's architecture (e.g., arm64).
 TARGET_ARCH
-                             
+
+# Lists additional modules to include in the recovery image.
 TARGET_RECOVERY_DEVICE_MODULES
-                                          
+
+# Specifies a custom path for the LUN file.
 TARGET_USE_CUSTOM_LUN_FILE_PATH
-                                     
+
+# Determine the file systems used for userdata, system, and other partitions.
 TARGET_USERIMAGES_USE_EXT4
-                                   
+
+# Determine the file systems used for userdata, system, and other partitions.
 TARGET_USERIMAGES_USE_F2FS
-                           
+
+# Determine the file systems used for userdata, system, and other partitions.
 TARGET_USES_MKE2FS
-                               
+
+# Forces TWRP to use rm -rf when deleting files and directories.
 TW_ALWAYS_RMRF
-              
+
+# Specify the paths to brightness control files.
 TW_BRIGHTNESS_PATH
-                                     
+
+# Define custom paths for battery and power button control.
 TW_CUSTOM_BATTERY_PATH
-                                    
+
+# 
 TW_CUSTOM_POWER_BUTTON
-                                     
+
+# Set the default brightness level.
 TW_DEFAULT_BRIGHTNESS
-                                      
+
+# Set the default language.
 TW_DEFAULT_LANGUAGE
-                                     
+
+# 
 TW_DEVICE_VERSION
-                                       
+
+# 
 TW_DISABLE_TTF
-                                                 
+
+# 
 TW_EXCLUDE_DEFAULT_USB_INIT
-                                      
+
+# 
 TW_EXCLUDE_ENCRYPTED_BACKUPS
-                                      
+
+# 
 TW_EXCLUDE_MTP
-                                    
+
+# 
 TW_EXCLUDE_SUPERSU
-                          
+
+# 
 TW_FORCE_CPUINFO_FOR_DEVICE_ID
-                                  
+
+# 
 TW_FRAMERATE
-                                   
+
+# 
 TW_H_OFFSET
-                               
+
+# 
 TW_HAS_DOWNLOAD_MODE
-                         
+
+# 
 TW_HAS_EDL_MODE
-                                      
+
+# 
 TW_HAS_NO_BOOT_PARTITION
-                                   
+
+# 
 TW_HAS_NO_RECOVERY_PARTITION
-                                 
+
+# 
 TW_INCLUDE_CRYPTO
-                               
+
+# 
 TW_INCLUDE_CRYPTO_FBE
-                                
+
+# 
 TW_INCLUDE_DUMLOCK
-                             
+
+# 
 TW_INCLUDE_FB2PNG
-                          
+
+# 
 TW_INCLUDE_FBE_METADATA_DECRYPT
-                               
+
+# 
 TW_INCLUDE_INJECTTWRP
-                           
+
+# 
 TW_INCLUDE_JB_CRYPTO
-                                
+
+# 
 TW_INCLUDE_LIBRESETPROP
-                           
+
+# 
 TW_INCLUDE_LPTOOLS
-                           
+
+# 
 TW_INCLUDE_NTFS_3G
-                      
+
+# 
 TW_INCLUDE_REPACKTOOLS
-                          
+
+# 
 TW_INCLUDE_RESETPROP
-                          
+
+# 
 TW_MAX_BRIGHTNESS
-                      
+
+# 
 TW_NEVER_UNMOUNT_SYSTEM
-                                        
+
+# 
 TW_NO_BATT_PERCENT
-                                    
+
+# 
 TW_NO_BIND_SYSTEM
-                                     
+
+# 
 TW_NO_CPU_TEMP
-                                       
+
+# 
 TW_NO_EXFAT
-                                    
+
+# 
 TW_NO_EXFAT_FUSE
 
-                                      
+# 
 TW_NO_LEGACY_PROPS
-                                
+
+# 
 TW_NO_REBOOT_BOOTLOADER
-                                        
+
+# 
 TW_NO_REBOOT_RECOVERY
-                                 
+
+# 
 TW_NO_SCREEN_BLANK
-                                            
+
+# 
 TW_NO_SCREEN_TIMEOUT
-                               
+
+# 
 TW_NO_USB_STORAGE
-                                    
+
+# 
 TW_OEM_BUILD
-                                      
+
+# 
 TW_ROUND_SCREEN
-                              
+
+# Specify the paths to brightness control files.
 TW_SECONDARY_BRIGHTNESS_PATH
-                                     
+
+# 
 TW_THEME
-        
+
+# 
 TW_USE_MODEL_HARDWARE_ID_FOR_DEVICE_ID
-                           
+
+# 
 TW_USE_NEW_MINADBD
-                                          
+
+# 
 TW_USE_TOOLBOX
-                                            
+
+# 
 TW_Y_OFFSET
-                                            
+
+# 
 TWHAVE_SELINUX
-                                          
+
+# 
 TWRP_EVENT_LOGGING
-                                     
+
+# 
 TWRP_INCLUDE_LOGCAT                                        
 
+# 
 BOARD_HAS_NO_REAL_SDCARD := true
 
+# 
 TW_USE_TOOLBOX := true
 
+# 
 TW_EXCLUDE_SUPERSU := true
 
+# 
 TW_EXCLUDE_MTP := true
 
+# 
 TW_OEM_BUILD := true
 
 # Add EXT4 support
