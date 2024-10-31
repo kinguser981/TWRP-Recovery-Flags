@@ -175,9 +175,6 @@ BOARD_USES_BML_OVER_MTD
 # include Logcat for help in debugging
 TWRP_INCLUDE_LOGCAT := true
 
-# See here : https://github.com/omnirom/android_bootable_recovery/blob/android-6.0/Android.mk#L435
-TARGET_RECOVERY_DEVICE_MODULES := true
-
 # Configure the display's offset.
 TW_X_OFFSET -- X-Axis offset for borked displays
 TW_Y_OFFSET -- Y-Axis offset for borked displays
@@ -195,9 +192,6 @@ TW_MTP_DEVICE
 
 # Qcom specific enhancements
 TW_TARGET_USES_QCOM_BSP
-
-# Use a prebuilt kernel rather than building from source
-TARGET_PREBUILT_KERNEL
 
 # Use RGBA,RGBX,ARGB and whatever, I don't remember, see the main thread for that info.
 TARGET_RECOVERY_PIXEL_FORMAT
@@ -285,6 +279,7 @@ DEVICE_RESOLUTION := set your device's resolution
 # auto copy files placed in device/$VENDOR/$DEVICENAME/recovery/root inside recovery ramdisk (e.g. init.recivery*.rc which get removed from recoveryramdisk by default). example:
 TARGET_RECOVERY_DEVICE_DIRS += device/samsung/espresso-common
 
+# Use a prebuilt kernel rather than building from source
 # path to a prebuild kernel (can be used if you are unable to compile a kernel yourself, e.g. if no kernel source available)
 TARGET_PREBUILT_KERNEL := $(LOCAL_PATH)/prebuilt/zImage
 
@@ -365,9 +360,6 @@ TW_NO_EXFAT := true
 # An awesome way to take screenshots. Back-end improvement, no noticeable user side changes. Screenshots work without it too
 TW_INCLUDE_FB2PNG := true
 
-# See here : https://github.com/omnirom/android_b...ndroid.mk#L435
-TARGET_RECOVERY_DEVICE_MODULES := true
-
 # Include a custom hardwarekeyboard.cpp . Can't see the point though.
 TWRP_CUSTOM_KEYBOARD := device/lge/hammerhead/recovery/hardwarekeyboard.cpp
 
@@ -397,8 +389,5 @@ TARGET_USERIMAGES_USE_F2FS := true
 # auto copy files placed in device/$VENDOR/$DEVICENAME/recovery/root inside recovery ramdisk (e.g. init.recivery*.rc which get removed from recoveryramdisk by default). 
 # example: for Nexus 5X ( set your device tree's location )
 TARGET_RECOVERY_DEVICE_DIRS += device/lge/bulhead
-
-# path to a prebuild kernel (can be used if you are unable to compile a kernel yourself, e.g. if no kernel source available)
-TARGET_PREBUILT_KERNEL := $(LOCAL_PATH)/prebuilt/zImage
 
 ```
