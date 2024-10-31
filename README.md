@@ -2,8 +2,6 @@
 TWRP-Recovery-Flags
 
 ```
-# Indicates that the device doesn't have a physical SD card.
-BOARD_HAS_NO_REAL_SDCARD
 
 # Specifies additional kernel command-line parameters.
 BOARD_KERNEL_CMDLINE
@@ -89,12 +87,6 @@ TW_HAS_EDL_MODE
 # Indicate the presence of specific modes and partitions.
 TW_HAS_NO_BOOT_PARTITION
 
-# device has no recovery partition.
-TW_HAS_NO_RECOVERY_PARTITION
-
-# To enable decryption.
-TW_INCLUDE_CRYPTO
-
 # To enable decryption.
 TW_INCLUDE_CRYPTO_FBE
 
@@ -106,9 +98,6 @@ TW_INCLUDE_FB2PNG
 
 # 
 TW_INCLUDE_FBE_METADATA_DECRYPT
-
-# 
-TW_INCLUDE_INJECTTWRP
 
 # 
 TW_INCLUDE_JB_CRYPTO
@@ -132,16 +121,10 @@ TW_INCLUDE_RESETPROP
 TW_MAX_BRIGHTNESS
 
 # 
-TW_NEVER_UNMOUNT_SYSTEM
-
-# 
 TW_NO_BATT_PERCENT
 
 # 
 TW_NO_BIND_SYSTEM
-
-# 
-TW_NO_CPU_TEMP
 
 # 
 TW_NO_EXFAT
@@ -153,20 +136,10 @@ TW_NO_EXFAT_FUSE
 TW_NO_LEGACY_PROPS
 
 # 
-TW_NO_REBOOT_BOOTLOADER
-
-# 
 TW_NO_REBOOT_RECOVERY
-
-
-# 
-TW_NO_SCREEN_TIMEOUT
 
 # 
 TW_NO_USB_STORAGE
-
-# 
-TW_OEM_BUILD
 
 # Enables support for round screens.
 TW_ROUND_SCREEN
@@ -193,22 +166,13 @@ TW_HAVE_SELINUX
 TWRP_EVENT_LOGGING
 
 # Enables the Logcat
-TWRP_INCLUDE_LOGCAT                                        
-
-# 
-BOARD_HAS_NO_REAL_SDCARD := true
-
-# Indicates that this is an OEM build of TWRP.
-TW_OEM_BUILD := true
+TWRP_INCLUDE_LOGCAT
 
 # Add EXT4 support
 TARGET_USERIMAGES_USE_EXT4 := true
 
 # Disable/enable SELinux. Only suggested when you want to enable SELinux support
 TWHAVE_SELINUX := true
-
-# No screen timeout
-TW_NO_SCREEN_TIMEOUT := true
 
 # disables things like sdcard partitioning and may save you some space if TWRP isn't fitting in your recovery patition
 BOARD_HAS_NO_REAL_SDCARD := true
@@ -233,32 +197,20 @@ TW_HAS_NO_RECOVERY_PARTITION := true
 # To prevent /boot partition not found error
 TW_HAS_NO_BOOT_PARTITION := true
 
-# Removes the 'Reboot bootloader' button
-TW_NO_REBOOT_BOOTLOADER := true
-
 # Removes the 'Reboot recovery' button
 TW_NO_REBOOT_RECOVERY := true
 
 # Disable the battery percentage for devices where it doesn't work properly
 TW_NO_BATT_PERCENT := true
 
-# Same as above, for CPU Temperature
-TW_NO_CPU_TEMP := true
-
 # Allows you to map a custom keycode for power button, takes in a number, usually three digits
 TW_CUSTOM_POWER_BUTTON := 107
-
-# Always use rm -rf to wipe
-TW_ALWAYS_RMRF := true
 
 # Prevent TWRP from unmounting /system
 TW_NEVER_UNMOUNT_SYSTEM := true
 
 # Removes USB Storage capability
 TW_NO_USB_STORAGE := true
-
-# Inject TWRP as a second ramdisk for Samsung devices, which keep recoveries that way.
-TW_INCLUDE_INJECTTWRP := true
 
 #
 TW_INCLUDE_BLOBPACK
@@ -280,7 +232,7 @@ TW_FORCE_CPUINFO_FOR_DEVICE_ID := true
 TW_NO_EXFAT_FUSE := true
 
 # Decryption support for /data
-TW_INCLUDE_CRYPTO -- General decryption modules
+TW_INCLUDE_CRYPTO
 
 # On some device, TWRP backup folder name will show 0000000000 bcos cpuinfo has no serial number. Using this flag then it will use ro.product.model as the folder name instead of all 0000000000
 TW_USE_MODEL_HARDWARE_ID_FOR_DEVICE_ID := true
@@ -413,32 +365,14 @@ TW_OEM_BUILD := true
 # screen will stay awake
 TW_NO_SCREEN_TIMEOUT := true
 
-# needed on devices without a recovery partition (some devices have recovery included im boot.img)
-TW_HAS_NO_RECOVERY_PARTITION := true
-
-# removes the reboot option to boot into boooader, needed e.g. on samsung devices which use Download mode instead
-TW_NO_REBOOT_BOOTLOADER := true
-
 # add an option in reboot menu to reboot into Download Mode
 TW_HAS_DOWNLOAD_MODE := true
-
-# some devices don't have a temp sensor, disable in such case to stop spamming recovery.log
-TW_NO_CPU_TEMP := true
-
-# recursive delete by default instead fotmatting (available optional inside recovery settings too)
-TW_ALWAYS_RMRF := true
-
-# system won't be unmounted,
-TW_NEVER_UNMOUNT_SYSTEM := true
 
 # don't blank screen (available optional inside recovery settings too)
 TW_NO_SCREEN_BLANK := true
 
 # deprecated, use TW_INCLUDE_CRYPTO instead
 TW_INCLUDE_JB_CRYPTO := true
-
-# add support for encryption
-TW_INCLUDE_CRYPTO := true
 
 # use a custom init.rc in recovery, add the path. Example:
 TARGET_RECOVERY_INITRC := device/samsung/p3100/rootdir/init.twrp.rc
@@ -492,7 +426,8 @@ TW_EXCLUDE_DEFAULT_USB_INIT := true
 # this one is used to replace the stocktheme with a different one (like material-play) the theme will be directly in ramdisk
 TW_CUSTOM_THEME := /path/to/theme/
 
-#adds ability to inject TWRP into some Samsung boot images for Samsung devices that have recovery as a second ramdisk in the boot image
+# adds ability to inject TWRP into some Samsung boot images for Samsung devices that have recovery as a second ramdisk in the boot image
+# Inject TWRP as a second ramdisk for Samsung devices, which keep recoveries that way.
 TW_INCLUDE_INJECTTWRP := true
 
 # this has sonething to do with 3.10 kernels and a different naming in /include/linux/ion.h ... like a switch between old heap_mask and new heap_id_mask
@@ -513,26 +448,14 @@ TW_INPUT_BLACKLIST := "accelerometer\x0agyroscope"
 # Disable/enable SELinux. Only suggested when you want to enable SELinux support
 TWHAVE_SELINUX := true
 
-# No screen timeout
-TW_NO_SCREEN_TIMEOUT := true
-
-# disables things like sdcard partitioning and may save you some space if TWRP isn't fitting in your recovery patition
-BOARD_HAS_NO_REAL_SDCARD := true
-
 # this enables proper handling of /data/media on devices that have this folder for storage (most Honeycomb and devices that originally shipped with ICS like Galaxy Nexus
 RECOVERY_SDCARD_ON_DATA := true
 
 # HTC Dumlock for those devices which need it
 TW_INCLUDE_DUMLOCK := true
 
-# If your device has recovery as a second ramdisk of boot.img
-TW_HAS_NO_RECOVERY_PARTITION := true
-
 # To prevent /boot partition not found error
 TW_HAS_NO_BOOT_PARTITION := true
-
-# Removes the 'Reboot bootloader' button
-TW_NO_REBOOT_BOOTLOADER := true
 
 # Removes the 'Reboot recovery' button
 TW_NO_REBOOT_RECOVERY := true
@@ -540,28 +463,11 @@ TW_NO_REBOOT_RECOVERY := true
 # Disable the battery percentage for devices where it doesn't work properly
 TW_NO_BATT_PERCENT := true
 
-# Same as above, for CPU Temperature
-TW_NO_CPU_TEMP := true
-
 # Allows you to map a custom keycode for power button, takes in a number, usually three digits
 TW_CUSTOM_POWER_BUTTON := 107
 
-# Always use rm -rf to wipe
-TW_ALWAYS_RMRF := true
-
-# Prevent TWRP from unmounting /system
-TW_NEVER_UNMOUNT_SYSTEM := true
-
 # Removes USB Storage capability
 TW_NO_USB_STORAGE := true
-
-# Automatically implies these:
-BOARD_HAS_NO_REAL_SDCARD := true
-
-TW_OEM_BUILD := true
-
-# Inject TWRP as a second ramdisk for Samsung devices, which keep recoveries that way.
-TW_INCLUDE_INJECTTWRP := true
 
 # Specify a path to the lun file on device
 TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/class/android_usb/android0/f_mass_storage/lun0/file"
@@ -639,19 +545,11 @@ TW_ROUND_SCREEN := true
 # Remove TrueType fonts
 TW_DISABLE_TTF:= true
 
-# building of an OEM friendly TWRP. excludes SuperSu, uses Toolbox instead busybox, disables themeing. MORE INFOS TO BE ADDED
-TW_OEM_BUILD := true
-
 # exclude mtp from twrp (disable if you are not able to fix it device/kernel side, safes some space)
 TW_EXCLUDE_MTP := true
 
-# screen will stay awake
-TW_NO_SCREEN_TIMEOUT := true
-
-# needed on devices without a recovery partition (some devices have recovery included im boot.img)
-TW_HAS_NO_RECOVERY_PARTITION := true
-
 # removes the reboot option to boot into boooader, needed e.g. on samsung devices which use Download mode instead
+# Removes the 'Reboot bootloader' button
 TW_NO_REBOOT_BOOTLOADER := true
 
 # add an option in reboot menu to reboot into Download Mode
@@ -660,17 +558,8 @@ TW_HAS_DOWNLOAD_MODE := true
 # some devices don't have a temp sensor, disable in such case to stop spamming recovery.log
 TW_NO_CPU_TEMP := true
 
-# recursive delete by default instead fotmatting (available optional inside recovery settings too)
-TW_ALWAYS_RMRF := true
-
-# system won't be unmounted,
-TW_NEVER_UNMOUNT_SYSTEM := true
-
 # deprecated, use TW_INCLUDE_CRYPTO instead
 TW_INCLUDE_JB_CRYPTO := true
-
-# add support for encryption
-TW_INCLUDE_CRYPTO := true
 
 # use a custom init.rc in recovery, add the path. Example:
 TARGET_RECOVERY_INITRC := device/samsung/p3100/rootdir/init.twrp.rc
