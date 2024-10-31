@@ -50,10 +50,10 @@ TW_ALWAYS_RMRF
 # Specify the paths to brightness control files.
 TW_BRIGHTNESS_PATH
 
-# Define custom paths for battery and power button control.
+# Define custom paths for battery.
 TW_CUSTOM_BATTERY_PATH
 
-# 
+# Define custom paths for power button control.
 TW_CUSTOM_POWER_BUTTON
 
 # Set the default brightness level.
@@ -62,52 +62,52 @@ TW_DEFAULT_BRIGHTNESS
 # Set the default language.
 TW_DEFAULT_LANGUAGE
 
-# 
+# Specifies the device's version.
 TW_DEVICE_VERSION
 
-# 
+# Disables TrueType font rendering.
 TW_DISABLE_TTF
 
-# 
+# Exclude certain features from TWRP.
 TW_EXCLUDE_DEFAULT_USB_INIT
 
-# 
+# Exclude certain features from TWRP.
 TW_EXCLUDE_ENCRYPTED_BACKUPS
 
-# 
+# Exclude certain features from TWRP.
 TW_EXCLUDE_MTP
 
-# 
+# Exclude certain features from TWRP.
 TW_EXCLUDE_SUPERSU
 
-# 
+# Forces TWRP to use CPU info for device ID.
 TW_FORCE_CPUINFO_FOR_DEVICE_ID
 
-# 
+# to set device display framerate
 TW_FRAMERATE
 
-# 
+# Configure the display's offset.
 TW_H_OFFSET
 
-# 
+# add it for Samsung devices 
 TW_HAS_DOWNLOAD_MODE
 
-# 
+# Indicate the presence of specific Emergency download mode.
 TW_HAS_EDL_MODE
 
-# 
+# Indicate the presence of specific modes and partitions.
 TW_HAS_NO_BOOT_PARTITION
 
-# 
+# device has no recovery partition.
 TW_HAS_NO_RECOVERY_PARTITION
 
-# 
+# To enable decryption.
 TW_INCLUDE_CRYPTO
 
-# 
+# To enable decryption.
 TW_INCLUDE_CRYPTO_FBE
 
-# 
+# Enable various features and tools in TWRP.
 TW_INCLUDE_DUMLOCK
 
 # 
@@ -122,22 +122,22 @@ TW_INCLUDE_INJECTTWRP
 # 
 TW_INCLUDE_JB_CRYPTO
 
-# 
+# Enable various features and tools in TWRP.
 TW_INCLUDE_LIBRESETPROP
 
-# 
+# Enable various features and tools in TWRP.
 TW_INCLUDE_LPTOOLS
 
 # 
 TW_INCLUDE_NTFS_3G
 
-# 
+# Enable various features and tools in TWRP.
 TW_INCLUDE_REPACKTOOLS
 
 # 
 TW_INCLUDE_RESETPROP
 
-# 
+# Sets the maximum brightness level.
 TW_MAX_BRIGHTNESS
 
 # 
@@ -179,40 +179,40 @@ TW_NO_USB_STORAGE
 # 
 TW_OEM_BUILD
 
-# 
+# Enables support for round screens.
 TW_ROUND_SCREEN
 
 # Specify the paths to brightness control files.
 TW_SECONDARY_BRIGHTNESS_PATH
 
-# 
+# Specifies the theme to use.
 TW_THEME
 
 # 
 TW_USE_MODEL_HARDWARE_ID_FOR_DEVICE_ID
 
-# 
+# Enables the use of the new minadbd.
 TW_USE_NEW_MINADBD
 
-# 
+# Enables the use of the Toolbox app.
 TW_USE_TOOLBOX
 
-# 
+# Configure the display's offset.
 TW_Y_OFFSET
 
-# 
-TWHAVE_SELINUX
+# Configure SELinux options.
+TW_HAVE_SELINUX
 
-# 
+# Configure logg options.
 TWRP_EVENT_LOGGING
 
-# 
+# Enables the Logcat
 TWRP_INCLUDE_LOGCAT                                        
 
 # 
 BOARD_HAS_NO_REAL_SDCARD := true
 
-# 
+# Enable various features and tools in TWRP.
 TW_USE_TOOLBOX := true
 
 # 
@@ -221,7 +221,7 @@ TW_EXCLUDE_SUPERSU := true
 # 
 TW_EXCLUDE_MTP := true
 
-# 
+# Indicates that this is an OEM build of TWRP.
 TW_OEM_BUILD := true
 
 # Add EXT4 support
