@@ -163,7 +163,7 @@ TW_Y_OFFSET
 TW_HAVE_SELINUX
 
 # Configure logg options.
-TWRP_EVENT_LOGGING
+
 
 # Enables the Logcat
 TWRP_INCLUDE_LOGCAT
@@ -287,9 +287,6 @@ TARGET_USERIMAGES_USE_F2FS -- Include mkfs.f2fs for formatting partitions as F2F
 # Include a custom hardwarekeyboard.cpp . Can't see the point though.
 TWRP_CUSTOM_KEYBOARD := device/lge/hammerhead/recovery/hardwarekeyboard.cpp
 
-# Log touch input
-TWRP_EVENT_LOGGING := true
-
 # @yuwneg :My experience on MTK tablet, typical is RECOVERY_TOUCHSCREEN_SWAP_XY & RECOVERY_TOUCHSCREEN_FLIP_Y is use is pair as MTK vendor tend to use landscape LCD but a normal portrait Touch Screen !
 TW_X_OFFSET -- X-Axis offset for borked displays
 TW_Y_OFFSET -- Y-Axis offset for borked displays
@@ -402,6 +399,12 @@ TW_THEME := landscape_mdpi
 
 # 1280x800 1920x1200 2560x1600
 TW_THEME := landscape_hdpi
+
+# device resolution - deprecated, use TW_THEME instead
+DEVICE_RESOLUTION := set your device's resolution
+
+# TWRP Custom Theme
+TW_CUSTOM_THEME := /path/to/theme/
 
 # auto copy files placed in device/$VENDOR/$DEVICENAME/recovery/root inside recovery ramdisk (e.g. init.recivery*.rc which get removed from recoveryramdisk by default). example:
 TARGET_RECOVERY_DEVICE_DIRS += device/samsung/espresso-common
@@ -536,9 +539,6 @@ TARGET_RECOVERY_DEVICE_MODULES := true
 # Include a custom hardwarekeyboard.cpp . Can't see the point though.
 TWRP_CUSTOM_KEYBOARD := device/lge/hammerhead/recovery/hardwarekeyboard.cpp
 
-# Log touch input
-TWRP_EVENT_LOGGING := true
-
 # Smartwatch optimisation
 TW_ROUND_SCREEN := true
 
@@ -566,24 +566,6 @@ TARGET_RECOVERY_INITRC := device/samsung/p3100/rootdir/init.twrp.rc
 
 # F2FS filesystem support (make sure your kernel supports f2fs!)
 TARGET_USERIMAGES_USE_F2FS := true
-
-# device resolution - deprecated, use TW_THEME instead
-DEVICE_RESOLUTION := set your device's resolution
-
-# define the theme for your device resolution, note: you can also use smaller/bigger themes because the theme get scaled for your deviceresolution anyway):
-# TWRP Themes
-# 240x240 280x280 320x320
-TW_THEME := watch_mdpi
-# 320x480 480x800 480x854 540x960
-TW_THEME := portrait_mdpi
-# 720x1280 800x1280 1080x1920 1200x1920 1440x2560 1600x2560
-TW_THEME := portrait_hdpi
-# 800x480 1024x600 1024x768
-TW_THEME := landscape_mdpi
-# 1280x800 1920x1200 2560x1600
-TW_THEME := landscape_hdpi
-# TWRP Custom Theme
-TW_CUSTOM_THEME := /path/to/theme/
 
 # auto copy files placed in device/$VENDOR/$DEVICENAME/recovery/root inside recovery ramdisk (e.g. init.recivery*.rc which get removed from recoveryramdisk by default). 
 # example: for Nexus 5X ( set your device tree's location )
