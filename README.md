@@ -16,13 +16,7 @@ DEVICE_RESOLUTION
 RECOVERY_SDCARD_ON_DATA
 
 # Configure touchscreen rotation and mirroring.
-RECOVERY_TOUCHSCREEN_FLIP_X
-
-# Configure touchscreen rotation and mirroring.
 RECOVERY_TOUCHSCREEN_FLIP_Y
-
-# Configure touchscreen rotation and mirroring.
-RECOVERY_TOUCHSCREEN_SWAP_XY
 
 # Defines the device's architecture (e.g., arm64).
 TARGET_ARCH
@@ -53,9 +47,6 @@ TW_CUSTOM_POWER_BUTTON
 
 # Set the default brightness level.
 TW_DEFAULT_BRIGHTNESS
-
-# Set the default language.
-TW_DEFAULT_LANGUAGE
 
 # Specifies the device's version.
 TW_DEVICE_VERSION
@@ -132,9 +123,6 @@ TW_NO_LEGACY_PROPS
 # Enables support for round screens.
 TW_ROUND_SCREEN
 
-# Specify the paths to brightness control files.
-TW_SECONDARY_BRIGHTNESS_PATH
-
 # Specifies the theme to use.
 TW_THEME
 
@@ -210,17 +198,8 @@ TW_INCLUDE_CRYPTO
 # On some device, TWRP backup folder name will show 0000000000 bcos cpuinfo has no serial number. Using this flag then it will use ro.product.model as the folder name instead of all 0000000000
 TW_USE_MODEL_HARDWARE_ID_FOR_DEVICE_ID := true
 
-# Set the path to the sysfs entry which controls the brightness
-TW_BRIGHTNESS_PATH := /sys/devices/platform/s3c24xx-pwm.0/pwm-backlight.0/backlight/pwm-backlight.0/backlight
-
-# A seconday path for the above
-TW_SECONDARY_BRIGHTNESS_PATH :=
-
 # Max brightness to prevent display damage
 TW_MAX_BRIGHTNESS := 255
-
-# Default brightness for TWRP
-TW_DEFAULT_BRIGHTNESS := 150
 
 # Custom battery readout path, don't use the given path though, it is intended to be used for a full diagnostic.
 TW_CUSTOM_BATTERY_PATH := /sys/class/power_supply/battery/batt_attr_text
@@ -237,9 +216,6 @@ TARGET_RECOVERY_QCOM_RTC_FIX
 # Supply a custom init.rc for the recovery
 TARGET_RECOVERY_INITRC := device/htc/pico/ramdisk/recovery/init.recovery.rc
 
-# Set the default language, if not english
-TW_DEFAULT_LANGUAGE := en-US
-
 # Remove exFAT formatting binaries
 TW_NO_EXFAT := true
 
@@ -254,7 +230,7 @@ TARGET_RECOVERY_DEVICE_MODULES := true
 
 TARGET_USERIMAGES_USE_F2FS -- Include mkfs.f2fs for formatting partitions as F2FS
 
-# @yuwneg :My experience on MTK tablet, typical is RECOVERY_TOUCHSCREEN_SWAP_XY & RECOVERY_TOUCHSCREEN_FLIP_Y is use is pair as MTK vendor tend to use landscape LCD but a normal portrait Touch Screen !
+# 
 TW_X_OFFSET -- X-Axis offset for borked displays
 TW_Y_OFFSET -- Y-Axis offset for borked displays
 
@@ -262,8 +238,6 @@ TW_Y_OFFSET -- Y-Axis offset for borked displays
 TW_ROUND_SCREEN := true
 
 TW_THEME -- New flag, takes in the following : portrait_mdpi, landscape_mdpi, portrait_hdpi,landscape_hdpi,watch_mdpi . It should be caps but when I was compiling a minute ago, it threw me an error and asked to de-caps it. So, see for yourself what works
-
-TW_CUSTOM_THEME -- Use a custom theme like materialised by @z31s1g . Give the path to the contents here.
 
 TWRP_NEW_THEME -- Old is gold. Put false to use the old one.
 
@@ -285,11 +259,6 @@ BOARD_CUSTOM_GRAPHICS -- include customised graphics backends if 3.0.0-0 broke s
 
 #
 TARGET_CUSTOM_KERNEL_HEADERS
-
-#
-RECOVERY_TOUCHSCREEN_SWAP_XY 
-RECOVERY_TOUCHSCREEN_FLIP_X
-RECOVERY_TOUCHSCREEN_FLIP_Y
 
 RECOVERY_GRAPHICS_FORCE_USE_LINELENGTH -- Fixes slanty graphics
 
@@ -319,9 +288,6 @@ TW_HAVE_X86_ACCELERATED_PIXELFLINGER
 
 # Take advantage of ARM-NEON optimisations
 ARCH_ARM_HAVE_NEON
-
-# remove TrueType fonts
-TW_DISABLE_TTF:= true
 
 # building of an OEM friendly TWRP. excludes SuperSu, uses Toolbox instead busybox, disables themeing. MORE INFOS TO BE ADDED
 TW_OEM_BUILD := true
@@ -370,9 +336,6 @@ TW_THEME := landscape_hdpi
 # device resolution - deprecated, use TW_THEME instead
 DEVICE_RESOLUTION := set your device's resolution
 
-# TWRP Custom Theme
-TW_CUSTOM_THEME := /path/to/theme/
-
 # auto copy files placed in device/$VENDOR/$DEVICENAME/recovery/root inside recovery ramdisk (e.g. init.recivery*.rc which get removed from recoveryramdisk by default). example:
 TARGET_RECOVERY_DEVICE_DIRS += device/samsung/espresso-common
 
@@ -393,6 +356,7 @@ Gesendet von meinem LG-H815 mit Tapatalk
 # don't include default init.recovery.usb.rc, provide your own or use needed defines inside init.recovery.$DEVICE.rc
 TW_EXCLUDE_DEFAULT_USB_INIT := true
 
+# TWRP Custom Theme
 # this one is used to replace the stocktheme with a different one (like material-play) the theme will be directly in ramdisk
 TW_CUSTOM_THEME := /path/to/theme/
 
@@ -456,12 +420,6 @@ TW_BRIGHTNESS_PATH := /sys/devices/platform/s3c24xx-pwm.0/pwm-backlight.0/backli
 
 # A seconday path for the above
 TW_SECONDARY_BRIGHTNESS_PATH := your phone's brightness path
-
-# Max brightness to prevent display damage
-TW_MAX_BRIGHTNESS := 255
-
-# Default brightness for TWRP
-TW_DEFAULT_BRIGHTNESS := 150
 
 # Custom battery readout path, don't use the given path though, it is intended to be used for a full diagnostic.
 TW_CUSTOM_BATTERY_PATH := /sys/class/power_supply/battery/batt_attr_text
@@ -528,9 +486,6 @@ TARGET_RECOVERY_DEVICE_DIRS += device/lge/bulhead
 
 # path to a prebuild kernel (can be used if you are unable to compile a kernel yourself, e.g. if no kernel source available)
 TARGET_PREBUILT_KERNEL := $(LOCAL_PATH)/prebuilt/zImage
-
-# swap x anf y axis for touch
-RECOVERY_TOUCHSCREEN_SWAP_XY := true
 
 # flip x axis for touch
 RECOVERY_TOUCHSCREEN_FLIP_X := true
