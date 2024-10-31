@@ -21,9 +21,6 @@ TARGET_ARCH
 # Lists additional modules to include in the recovery image.
 TARGET_RECOVERY_DEVICE_MODULES
 
-# Specifies a custom path for the LUN file.
-TARGET_USE_CUSTOM_LUN_FILE_PATH
-
 # Determine the file systems used for userdata, system, and other partitions.
 TARGET_USES_MKE2FS
 
@@ -36,9 +33,6 @@ TW_BRIGHTNESS_PATH
 # Define custom paths for battery.
 TW_CUSTOM_BATTERY_PATH
 
-# Define custom paths for power button control.
-TW_CUSTOM_POWER_BUTTON
-
 # Set the default brightness level.
 TW_DEFAULT_BRIGHTNESS
 
@@ -50,9 +44,6 @@ TW_DISABLE_TTF
 
 # Exclude certain features from TWRP.
 TW_EXCLUDE_DEFAULT_USB_INIT
-
-# Exclude certain features from TWRP.
-TW_EXCLUDE_ENCRYPTED_BACKUPS
 
 # Forces TWRP to use CPU info for device ID.
 TW_FORCE_CPUINFO_FOR_DEVICE_ID
@@ -68,9 +59,6 @@ TW_HAS_DOWNLOAD_MODE
 
 # Indicate the presence of specific Emergency download mode.
 TW_HAS_EDL_MODE
-
-# Indicate the presence of specific modes and partitions.
-TW_HAS_NO_BOOT_PARTITION
 
 # To enable decryption.
 TW_INCLUDE_CRYPTO_FBE
@@ -163,12 +151,6 @@ BOARD_UMS_LUNFILE :=
 # Blocks EXT4 FS for SD-EXT partitions
 TW_SDEXT_NO_EXT4
 
-# Forces use of /proc/cpuinfo for determining device id. Look here : https://github.com/omnirom/android_bootable_recovery/blob/android-6.0/data.cpp#l183-l184
-TW_FORCE_CPUINFO_FOR_DEVICE_ID := true
-
-# For older devices. See here :https://github.com/omnirom/android_bootable_recovery/blob/android-6.0/Android.mk#l383
-TW_NO_EXFAT_FUSE := true
-
 # Decryption support for /data
 TW_INCLUDE_CRYPTO
 
@@ -178,9 +160,6 @@ TW_USE_MODEL_HARDWARE_ID_FOR_DEVICE_ID := true
 # Max brightness to prevent display damage
 TW_MAX_BRIGHTNESS := 255
 
-# Custom battery readout path, don't use the given path though, it is intended to be used for a full diagnostic.
-TW_CUSTOM_BATTERY_PATH := /sys/class/power_supply/battery/batt_attr_text
-
 # CPU temp sysfs path, if it is zero all the time.
 TW_CUSTOM_CPU_TEMP_PATH := true
 
@@ -189,12 +168,6 @@ TW_EXCLUDE_ENCRYPTED_BACKUPS := true
 
 # Timezone fixes for some Qcom devices.
 TARGET_RECOVERY_QCOM_RTC_FIX
-
-# Supply a custom init.rc for the recovery
-TARGET_RECOVERY_INITRC := device/htc/pico/ramdisk/recovery/init.recovery.rc
-
-# Remove exFAT formatting binaries
-TW_NO_EXFAT := true
 
 #
 BOARD_USES_BML_OVER_MTD
@@ -283,9 +256,6 @@ TW_HAS_DOWNLOAD_MODE := true
 # don't blank screen (available optional inside recovery settings too)
 TW_NO_SCREEN_BLANK := true
 
-# use a custom init.rc in recovery, add the path. Example:
-TARGET_RECOVERY_INITRC := device/samsung/p3100/rootdir/init.twrp.rc
-
 # exclude SuperSu e.g. to save some space or for different other reasons (supersu still included by default?)
 TW_EXCLUDE_SUPERSU := true
 
@@ -358,20 +328,8 @@ TW_INPUT_BLACKLIST := "accelerometer\x0agyroscope"
 # Disable/enable SELinux. Only suggested when you want to enable SELinux support
 TWHAVE_SELINUX := true
 
-# To prevent /boot partition not found error
-TW_HAS_NO_BOOT_PARTITION := true
-
-# Allows you to map a custom keycode for power button, takes in a number, usually three digits
-TW_CUSTOM_POWER_BUTTON := 107
-
 # Removes USB Storage capability
 TW_NO_USB_STORAGE := true
-
-# Specify a path to the lun file on device
-TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/class/android_usb/android0/f_mass_storage/lun0/file"
-
-# Forces use of /proc/cpuinfo for determining device id. Look here : https://github.com/omnirom/android_b....cpp#l183-l184
-TW_FORCE_CPUINFO_FOR_DEVICE_ID := true
 
 # For older devices. See here :https://github.com/omnirom/android_b...ndroid.mk#l383
 TW_NO_EXFAT_FUSE := true
@@ -387,15 +345,6 @@ TW_SECONDARY_BRIGHTNESS_PATH := your phone's brightness path
 
 # Custom battery readout path, don't use the given path though, it is intended to be used for a full diagnostic.
 TW_CUSTOM_BATTERY_PATH := /sys/class/power_supply/battery/batt_attr_text
-
-# CPU temp sysfs path, if it is zero all the time.
-TW_CUSTOM_CPU_TEMP_PATH := true
-
-# Remove the ability to encrypt backups with a password
-TW_EXCLUDE_ENCRYPTED_BACKUPS := true
-
-# Supply a custom init.rc for the recovery
-TARGET_RECOVERY_INITRC := device/htc/pico/ramdisk/recovery/init.recovery.rc
 
 # Set the default language, if not english
 TW_DEFAULT_LANGUAGE := en-US
@@ -439,7 +388,8 @@ TW_NO_CPU_TEMP := true
 TW_INCLUDE_JB_CRYPTO := true
 
 # use a custom init.rc in recovery, add the path. Example:
-TARGET_RECOVERY_INITRC := device/samsung/p3100/rootdir/init.twrp.rc
+TARGET_RECOVERY_INITRC := device/samsung/a05s/rootdir/init.twrp.rc
+TARGET_RECOVERY_INITRC := device/htc/pico/ramdisk/recovery/init.recovery.rc
 
 # F2FS filesystem support (make sure your kernel supports f2fs!)
 TARGET_USERIMAGES_USE_F2FS := true
