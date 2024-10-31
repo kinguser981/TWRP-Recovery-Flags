@@ -2,10 +2,7 @@
 TWRP Recovery Flags By Samuel Kendall
 
 ```
-#
 # Copyright (C) 2024 The TWRP Open Source Project
-# TWRP images are copyright 2011 to 2024 Team Win LLC. You may download and use TWRP for your own use.
-#
 ```
 
 ```
