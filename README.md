@@ -74,12 +74,6 @@ TW_EXCLUDE_DEFAULT_USB_INIT
 # Exclude certain features from TWRP.
 TW_EXCLUDE_ENCRYPTED_BACKUPS
 
-# Exclude certain features from TWRP.
-TW_EXCLUDE_MTP
-
-# Exclude certain features from TWRP.
-TW_EXCLUDE_SUPERSU
-
 # Forces TWRP to use CPU info for device ID.
 TW_FORCE_CPUINFO_FOR_DEVICE_ID
 
@@ -194,9 +188,6 @@ TW_USE_MODEL_HARDWARE_ID_FOR_DEVICE_ID
 # Enables the use of the new minadbd.
 TW_USE_NEW_MINADBD
 
-# Enables the use of the Toolbox app.
-TW_USE_TOOLBOX
-
 # Configure the display's offset.
 TW_Y_OFFSET
 
@@ -212,15 +203,6 @@ TWRP_INCLUDE_LOGCAT
 # 
 BOARD_HAS_NO_REAL_SDCARD := true
 
-# Enable various features and tools in TWRP.
-TW_USE_TOOLBOX := true
-
-# 
-TW_EXCLUDE_SUPERSU := true
-
-# 
-TW_EXCLUDE_MTP := true
-
 # Indicates that this is an OEM build of TWRP.
 TW_OEM_BUILD := true
 
@@ -229,9 +211,6 @@ TARGET_USERIMAGES_USE_EXT4 := true
 
 # Disable/enable SELinux. Only suggested when you want to enable SELinux support
 TWHAVE_SELINUX := true
-
-# Remove MTP support
-TW_EXCLUDE_MTP := true
 
 # No screen timeout
 TW_NO_SCREEN_TIMEOUT := true
@@ -344,17 +323,8 @@ TARGET_RECOVERY_INITRC := device/htc/pico/ramdisk/recovery/init.recovery.rc
 # Set the default language, if not english
 TW_DEFAULT_LANGUAGE := en-US
 
-# Specify architecture
-TARGET_ARCH := arm
-
-# For people who would want to have ToyBox rather than Busybox
-TW_USE_TOOLBOX := true
-
 # Remove exFAT formatting binaries
 TW_NO_EXFAT := true
-
-# Remove SuperSU and stop TWRP prompts to install it
-TW_EXCLUDE_SUPERSU := true
 
 # An awesome way to take screenshots. Back-end improvement, no noticeable user side changes. Screenshots work without it too
 TW_INCLUDE_FB2PNG := true
@@ -445,9 +415,6 @@ TW_OEM_BUILD := true
 # Adds EXT4 formatting binaries
 TARGET_USERIMAGES_USE_EXT4 := true
 
-# exclude mtp from twrp (disable if you are not able to fix it device/kernel side, safes some space)
-TW_EXCLUDE_MTP := true
-
 # screen will stay awake
 TW_NO_SCREEN_TIMEOUT := true
 
@@ -481,10 +448,7 @@ TW_INCLUDE_CRYPTO := true
 # use a custom init.rc in recovery, add the path. Example:
 TARGET_RECOVERY_INITRC := device/samsung/p3100/rootdir/init.twrp.rc
 
-# ToyBox (disables busybox?)
-TW_USE_TOOLBOX := true
-
-# exclude SuperSu e.g. to save some space or for different other reasons (supersu still included bx default?)
+# exclude SuperSu e.g. to save some space or for different other reasons (supersu still included by default?)
 TW_EXCLUDE_SUPERSU := true
 
 # include f2fs support (make sure your kernel supports f2fs!)
@@ -557,9 +521,6 @@ TARGET_USERIMAGES_USE_EXT4 := true
 # Disable/enable SELinux. Only suggested when you want to enable SELinux support
 TWHAVE_SELINUX := true
 
-# Remove MTP support
-TW_EXCLUDE_MTP := true
-
 # No screen timeout
 TW_NO_SCREEN_TIMEOUT := true
 
@@ -604,12 +565,6 @@ TW_NO_USB_STORAGE := true
 
 # Automatically implies these:
 BOARD_HAS_NO_REAL_SDCARD := true
-
-TW_USE_TOOLBOX := true
-
-TW_EXCLUDE_SUPERSU := true
-
-TW_EXCLUDE_MTP := true
 
 TW_OEM_BUILD := true
 
@@ -671,9 +626,6 @@ TW_USE_TOOLBOX := true
 # Remove exFAT formatting binaries
 TW_NO_EXFAT := true
 
-# Remove SuperSU and stop TWRP prompts to install it
-TW_EXCLUDE_SUPERSU := true
-
 # An awesome way to take screenshots. Back-end improvement, no noticeable user side changes. Screenshots work without it too
 TW_INCLUDE_FB2PNG := true
 
@@ -733,12 +685,6 @@ TW_INCLUDE_CRYPTO := true
 
 # use a custom init.rc in recovery, add the path. Example:
 TARGET_RECOVERY_INITRC := device/samsung/p3100/rootdir/init.twrp.rc
-
-# ToyBox (disables busybox?)
-TW_USE_TOOLBOX := true
-
-# exclude SuperSu e.g. to save some space or for different other reasons (supersu still included bx default?)
-TW_EXCLUDE_SUPERSU := true
 
 # F2FS filesystem support (make sure your kernel supports f2fs!)
 TARGET_USERIMAGES_USE_F2FS := true
