@@ -93,20 +93,8 @@ TW_INCLUDE_REPACKTOOLS
 # 
 TW_INCLUDE_RESETPROP
 
-# Sets the maximum brightness level.
-TW_MAX_BRIGHTNESS
-
-# 
-TW_NO_BATT_PERCENT
-
 # 
 TW_NO_BIND_SYSTEM
-
-# 
-TW_NO_EXFAT
-
-# 
-TW_NO_EXFAT_FUSE
 
 # 
 TW_NO_LEGACY_PROPS
@@ -172,7 +160,8 @@ TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/class/android_usb/android0/f_mass_stora
 # Not very sure, I guess it allows you to simply pop in the lunfile itself
 BOARD_UMS_LUNFILE :=
 
-TW_SDEXT_NO_EXT4 -- Blocks EXT4 FS for SD-EXT partitions
+# Blocks EXT4 FS for SD-EXT partitions
+TW_SDEXT_NO_EXT4
 
 # Forces use of /proc/cpuinfo for determining device id. Look here : https://github.com/omnirom/android_bootable_recovery/blob/android-6.0/data.cpp#l183-l184
 TW_FORCE_CPUINFO_FOR_DEVICE_ID := true
@@ -220,33 +209,40 @@ TARGET_RECOVERY_DEVICE_MODULES := true
 TW_X_OFFSET -- X-Axis offset for borked displays
 TW_Y_OFFSET -- Y-Axis offset for borked displays
 
-# Smartwatch optimisation
-TW_ROUND_SCREEN := true
-
 TW_THEME -- New flag, takes in the following : portrait_mdpi, landscape_mdpi, portrait_hdpi,landscape_hdpi,watch_mdpi . It should be caps but when I was compiling a minute ago, it threw me an error and asked to de-caps it. So, see for yourself what works
 
-TWRP_NEW_THEME -- Old is gold. Put false to use the old one.
+# Old is gold. Put false to use the old one.
+TWRP_NEW_THEME
 
-TW_EXTRA_LANGUAGES -- Set to true and enable localisation
+# Set to true and enable localisation
+TW_EXTRA_LANGUAGES
 
-TW_MTP_DEVICE -- Specify a custom device name for MTP
+# Specify a custom device name for MTP
+TW_MTP_DEVICE
 
-TW_TARGET_USES_QCOM_BSP -- Qcom specific enhancements
+# Qcom specific enhancements
+TW_TARGET_USES_QCOM_BSP
 
-TARGET_PREBUILT_KERNEL -- Use a prebuilt kernel rather than building from source
+# Use a prebuilt kernel rather than building from source
+TARGET_PREBUILT_KERNEL
 
-TARGET_RECOVERY_PIXEL_FORMAT -- Use RGBA,RGBX,ARGB and whatever, I don't remember, see the main thread for that info.
+# Use RGBA,RGBX,ARGB and whatever, I don't remember, see the main thread for that info.
+TARGET_RECOVERY_PIXEL_FORMAT
 
-TARGET_RECOVERY_OVERSCAN_PERCENT -- Defines the padding to leave around the screen edges
+# Defines the padding to leave around the screen edges
+TARGET_RECOVERY_OVERSCAN_PERCENT
 
-BOARD_USE_CUSTOM_RECOVERY_FONT -- Specify a .ttf file to use as default font
+# Specify a .ttf file to use as default font
+BOARD_USE_CUSTOM_RECOVERY_FONT
 
-BOARD_CUSTOM_GRAPHICS -- include customised graphics backends if 3.0.0-0 broke stuff for you
+# include customised graphics backends if 3.0.0-0 broke stuff for you
+BOARD_CUSTOM_GRAPHICS
 
 #
 TARGET_CUSTOM_KERNEL_HEADERS
 
-RECOVERY_GRAPHICS_FORCE_USE_LINELENGTH -- Fixes slanty graphics
+#  Fixes slanty graphics
+RECOVERY_GRAPHICS_FORCE_USE_LINELENGTH
 
 #
 TW_DISABLE_DOUBLE_BUFFERING
@@ -365,12 +361,6 @@ TWHAVE_SELINUX := true
 # To prevent /boot partition not found error
 TW_HAS_NO_BOOT_PARTITION := true
 
-# Removes the 'Reboot recovery' button
-TW_NO_REBOOT_RECOVERY := true
-
-# Disable the battery percentage for devices where it doesn't work properly
-TW_NO_BATT_PERCENT := true
-
 # Allows you to map a custom keycode for power button, takes in a number, usually three digits
 TW_CUSTOM_POWER_BUTTON := 107
 
@@ -388,9 +378,6 @@ TW_NO_EXFAT_FUSE := true
 
 # Decryption support for /data
 TW_INCLUDE_CRYPTO := true
-
-# On some device, TWRP backup folder name will show 0000000000 bcos cpuinfo has no serial number. Using this flag then it will use ro.product.model as the folder name instead of all 0000000000
-TW_USE_MODEL_HARDWARE_ID_FOR_DEVICE_ID := true
 
 # Set the path to the sysfs entry which controls the brightness
 TW_BRIGHTNESS_PATH := /sys/devices/platform/s3c24xx-pwm.0/pwm-backlight.0/backlight/pwm-backlight.0/backlight
