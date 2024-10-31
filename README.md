@@ -351,7 +351,8 @@ TW_USE_NEW_MINADBD
 # Configure SELinux options.
 TW_HAVE_SELINUX
 
-# Configure logg options.
+# 
+TARGET_NO_KERNEL := false
 
 # Add EXT4 support
 TARGET_USERIMAGES_USE_EXT4 := true
