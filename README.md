@@ -12,6 +12,92 @@ TWRP Recovery Flags By Samuel Kendall
 
 
 
+
+#
+TW_FORCE_KEYMASTER_VER := true
+
+# For A/B devices that has dedicated recovery, removing that option in Advance.
+TW_NO_FLASH_CURRENT_TWRP := true
+
+# Platform Version
+PLATFORM_VERSION := 99.87.36
+PLATFORM_VERSION_LAST_STABLE := $(PLATFORM_VERSION)
+
+#
+BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom androidboot.console=ttyMSM0 androidboot.memcg=1 lpm_levels.sleep_disabled=1 video=vfb:640x400,bpp=32,memsize=3072000 msm_rtb.filter=0x237 service_locator.enable=1 swiotlb=1 earlycon=msm_geni_serial,0x4a90000 loop.max_part=7 cgroup.memory=nokmem,nosocket
+
+
+# Build Rules
+BUILD_BROKEN_DUP_RULES := true
+
+#
+BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
+
+# All the partitions to be wiped (in order) under recovery.
+# Wipe the boot partitions last so that all partitions will be wiped
+# correctly even if the wiping process gets interrupted by a force boot.
+TARGET_RECOVERY_WIPE := device/samsung/a05s/recovery.wipe
+
+recovery.wipe file content >>>
+##########################################################
+/dev/block/bootdevice/by-name/userdata
+/dev/block/by-name/userdata
+/dev/block/bootdevice/by-name/metadata
+/dev/block/by-name/metadata
+/dev/block/bootdevice/by-name/system_a
+/dev/block/bootdevice/by-name/system_b
+/dev/block/bootdevice/by-name/vendor_a
+/dev/block/bootdevice/by-name/vendor_b
+/dev/block/bootdevice/by-name/userdata
+/dev/block/bootdevice/by-name/boot_a
+/dev/block/bootdevice/by-name/boot_b
+########################################################
+
+# Hack: prevent anti rollback
+PLATFORM_SECURITY_PATCH := 2099-12-31
+VENDOR_SECURITY_PATCH := 2099-12-31
+
+# Vendor Properties
+TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
+
+# Kernel Modules
+TW_LOAD_VENDOR_MODULES := "*"
+
+TW_LOAD_VENDOR_BOOT_MODULES := true
+
+#
+TW_LOAD_VENDOR_MODULES_EXCLUDE_GKI := true
+
+# To INCLUDE FASTBOOTD
+TW_INCLUDE_FASTBOOTD := true
+
+# To Exclude DEFAULT USB INIT
+TW_EXCLUDE_DEFAULT_USB_INIT := true
+
+# To Exclude TWRPAPP
+TW_EXCLUDE_TWRPAPP := true
+
+# mke2fs
+TARGET_USES_MKE2FS := true
+
+# Kernel Configuration
+BOARD_BOOTIMG_HEADER_VERSION := 2
+TARGET_FORCE_PREBUILT_KERNEL := true
+TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/kernel
+TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilt/dtb.img
+BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo.img
+
+#
+TARGET_KERNEL_CONFIG := a05s_defconfig
+
+#
+TARGET_KERNEL_SOURCE := kernel/samsung/a05s
+TARGET_KERNEL_SOURCE := kernel/nokia/cap_sprout
+
+# APEX
+DEXPREOPT_GENERATE_APEX_IMAGE := true
+TW_EXCLUDE_APEX := true
+
 #
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab
 
@@ -31,8 +117,12 @@ BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 
 # Platform
-TARGET_BOARD_PLATFORM := 
-TARGET_BOOTLOADER_BOARD_NAME := 
+TARGET_BOARD_PLATFORM :=
+
+#
+TARGET_BOOTLOADER_BOARD_NAME :=
+
+#
 QCOM_BOARD_PLATFORMS += 
 
 #
@@ -68,6 +158,8 @@ TARGET_INIT_VENDOR_LIB
 
 # Display
 TARGET_SCREEN_DENSITY := 450
+TARGET_SCREEN_HEIGHT := 1080
+TARGET_SCREEN_WIDTH := 1920
 
 # Bootloader
 TARGET_NO_BOOTLOADER := false
@@ -110,7 +202,19 @@ DEVICE_RESOLUTION
 RECOVERY_TOUCHSCREEN_FLIP_Y
 
 # Defines the device's architecture (e.g., arm64).
-TARGET_ARCH
+TARGET_ARCH := arm64
+TARGET_ARCH_VARIANT := armv8-a
+TARGET_CPU_ABI := arm64-v8a
+TARGET_CPU_ABI2 := 
+TARGET_CPU_VARIANT := generic
+TARGET_CPU_VARIANT_RUNTIME := generic
+
+TARGET_2ND_ARCH := arm
+TARGET_2ND_ARCH_VARIANT := armv7-a-neon
+TARGET_2ND_CPU_ABI := armeabi-v7a
+TARGET_2ND_CPU_ABI2 := armeabi
+TARGET_2ND_CPU_VARIANT := generic
+TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a9
 
 # Lists additional modules to include in the recovery image.
 TARGET_RECOVERY_DEVICE_MODULES
