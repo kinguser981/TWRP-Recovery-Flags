@@ -7,7 +7,7 @@ TWRP Recovery Flags By Samuel Kendall
 
 
 
-
+```
 # Statusbar icons flags
 TW_STATUS_ICONS_ALIGN := center
 
@@ -646,4 +646,4 @@ TARGET_USERIMAGES_USE_F2FS := true
 # auto copy files placed in device/$VENDOR/$DEVICENAME/recovery/root inside recovery ramdisk (e.g. init.recivery*.rc which get removed from recoveryramdisk by default). 
 # example: for Nexus 5X ( set your device tree's location )
 TARGET_RECOVERY_DEVICE_DIRS += device/lge/bulhead
-
+```
