@@ -5,7 +5,7 @@ TWRP Recovery Flags By Samuel Kendall
 # Copyright (C) 2024 The TWRP Open Source Project
 ```
 
-```
+
 
 
 # Statusbar icons flags
@@ -647,4 +647,3 @@ TARGET_USERIMAGES_USE_F2FS := true
 # example: for Nexus 5X ( set your device tree's location )
 TARGET_RECOVERY_DEVICE_DIRS += device/lge/bulhead
 
-```
