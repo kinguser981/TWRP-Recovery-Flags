@@ -12,9 +12,6 @@ BOARD_USES_METADATA_PARTITION
 # Sets the device's screen resolution.
 DEVICE_RESOLUTION
 
-# Specifies whether the recovery partition is located on the data partition.
-RECOVERY_SDCARD_ON_DATA
-
 # Configure touchscreen rotation and mirroring.
 RECOVERY_TOUCHSCREEN_FLIP_Y
 
@@ -26,9 +23,6 @@ TARGET_RECOVERY_DEVICE_MODULES
 
 # Specifies a custom path for the LUN file.
 TARGET_USE_CUSTOM_LUN_FILE_PATH
-
-# Determine the file systems used for userdata, system, and other partitions.
-TARGET_USERIMAGES_USE_F2FS
 
 # Determine the file systems used for userdata, system, and other partitions.
 TARGET_USES_MKE2FS
@@ -84,9 +78,6 @@ TW_INCLUDE_CRYPTO_FBE
 # 
 TW_INCLUDE_FBE_METADATA_DECRYPT
 
-# 
-TW_INCLUDE_JB_CRYPTO
-
 # Enable various features and tools in TWRP.
 TW_INCLUDE_LIBRESETPROP
 
@@ -128,9 +119,6 @@ TW_THEME
 
 # Enables the use of the new minadbd.
 TW_USE_NEW_MINADBD
-
-# Configure the display's offset.
-TW_Y_OFFSET
 
 # Configure SELinux options.
 TW_HAVE_SELINUX
@@ -228,9 +216,7 @@ TWRP_INCLUDE_LOGCAT := true
 # See here : https://github.com/omnirom/android_bootable_recovery/blob/android-6.0/Android.mk#L435
 TARGET_RECOVERY_DEVICE_MODULES := true
 
-TARGET_USERIMAGES_USE_F2FS -- Include mkfs.f2fs for formatting partitions as F2FS
-
-# 
+# Configure the display's offset.
 TW_X_OFFSET -- X-Axis offset for borked displays
 TW_Y_OFFSET -- Y-Axis offset for borked displays
 
@@ -301,17 +287,11 @@ TW_HAS_DOWNLOAD_MODE := true
 # don't blank screen (available optional inside recovery settings too)
 TW_NO_SCREEN_BLANK := true
 
-# deprecated, use TW_INCLUDE_CRYPTO instead
-TW_INCLUDE_JB_CRYPTO := true
-
 # use a custom init.rc in recovery, add the path. Example:
 TARGET_RECOVERY_INITRC := device/samsung/p3100/rootdir/init.twrp.rc
 
 # exclude SuperSu e.g. to save some space or for different other reasons (supersu still included by default?)
 TW_EXCLUDE_SUPERSU := true
-
-# include f2fs support (make sure your kernel supports f2fs!)
-TARGET_USERIMAGES_USE_F2FS := true
 
 # device resolution - deprecated, use TW_THEME instead
 DEVICE_RESOLUTION :=
@@ -381,9 +361,6 @@ TW_INPUT_BLACKLIST := "accelerometer\x0agyroscope"
 
 # Disable/enable SELinux. Only suggested when you want to enable SELinux support
 TWHAVE_SELINUX := true
-
-# this enables proper handling of /data/media on devices that have this folder for storage (most Honeycomb and devices that originally shipped with ICS like Galaxy Nexus
-RECOVERY_SDCARD_ON_DATA := true
 
 # To prevent /boot partition not found error
 TW_HAS_NO_BOOT_PARTITION := true
@@ -486,13 +463,5 @@ TARGET_RECOVERY_DEVICE_DIRS += device/lge/bulhead
 
 # path to a prebuild kernel (can be used if you are unable to compile a kernel yourself, e.g. if no kernel source available)
 TARGET_PREBUILT_KERNEL := $(LOCAL_PATH)/prebuilt/zImage
-
-# flip x axis for touch
-RECOVERY_TOUCHSCREEN_FLIP_X := true
-
-# flip y axis for touch,
-RECOVERY_TOUCHSCREEN_FLIP_Y := true
-
-
 
 ```
