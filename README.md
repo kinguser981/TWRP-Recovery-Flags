@@ -7,6 +7,12 @@ TWRP Recovery Flags By Samuel Kendall
 
 ```
 
+# KERNEL IMAGE NAME
+BOARD_KERNEL_IMAGE_NAME := Image
+
+# To INCLUDE DTB IN BOOTIMG
+BOARD_INCLUDE_DTB_IN_BOOTIMG
+
 # for device without dedicated recovery partition 
 BOARD_USES_RECOVERY_AS_BOOT := true
 
