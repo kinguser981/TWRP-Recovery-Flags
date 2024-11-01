@@ -5,7 +5,7 @@ TWRP Recovery Flags By Samuel Kendall
 # Copyright (C) 2024 The TWRP Open Source Project
 ```
 
-
+Updates : https://xdaforums.com/t/twrp-flags-to-add-in-boardconfig-mk.4700781/
 
 ```
 # Statusbar icons flags
