@@ -309,8 +309,8 @@ TW_FRAMERATE
 # Configure the display's offset.
 TW_H_OFFSET
 
-# add it for Samsung devices 
-TW_HAS_DOWNLOAD_MODE
+# Add an option in reboot menu to reboot into Download Mode. add it for Samsung devices
+TW_HAS_DOWNLOAD_MODE := true
 
 # Indicate the presence of specific Emergency download mode.
 TW_HAS_EDL_MODE
@@ -501,8 +501,6 @@ TW_OEM_BUILD := true
 # screen will stay awake
 TW_NO_SCREEN_TIMEOUT := true
 
-# add an option in reboot menu to reboot into Download Mode For Samsung devices
-TW_HAS_DOWNLOAD_MODE := true
 
 # don't blank screen (available optional inside recovery settings too)
 TW_NO_SCREEN_BLANK := true
@@ -548,8 +546,6 @@ RECOVERY_TOUCHSCREEN_FLIP_X := true
 
 # flip y axis for touch,
 RECOVERY_TOUCHSCREEN_FLIP_Y := true
-
-Gesendet von meinem LG-H815 mit Tapatalk
 
 # don't include default init.recovery.usb.rc, provide your own or use needed defines inside init.recovery.$DEVICE.rc
 TW_EXCLUDE_DEFAULT_USB_INIT := true
